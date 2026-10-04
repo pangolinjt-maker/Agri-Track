@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AgriTrack ZW Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap framework first -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Internal CSS goes here -->
+  <style>
+    h1 , h2 {
+      background-color: blue;     
+      color: white;              
+      display: inline-block;
+    }
+  </style>
+ </head>
+<body>
+
+<!-- 
+Semantic Justification:
+1. <header> is used instead of <div> because it defines the site’s introductory section, improving accessibility and navigation.
+2. <main> is used instead of <div> to mark the central content of the page, helping screen readers skip repetitive navigation.
+3. <aside> is used instead of <div> to separate secondary information like external links and callouts, making the layout more meaningful.
+-->
+
+<header>
+  <h1>AgriTrack ZW</h1>
+  <p>Your gateway to smart farming in Zimbabwe</p>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#crops">Crop Database</a></li>
+      <li><a href="#weather">Weather</a></li>
+      <li><a href="#alerts">Alerts</a></li>
+      <li><a href="register.html"><b>Register</b></a></li>
+      <li><a href="dashboard.html"><b>Dashboard</b></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero Section -->
+  <section id="hero">
+    <h2>Welcome to AgriTrack ZW</h2>
+    <p>Empowering farmers with data, insights, and alerts for resilient agriculture.</p>
+  </section>
+
+  <!-- Statistics Section -->
+  <section id="stats">
+    <h2>Portal Statistics</h2>
+    <ul>
+      <li>500+ registered farms</li>
+      <li>10 provinces covered</li>
+      <li>20 crop varieties tracked</li>
+      <li>100+ alerts issued</li>
+    </ul>
+  </section>
+
+  <!-- Crop Database Section -->
+  <section id="crops">
+    <h2>Crop Database</h2>
+
+    <article>
+      <h3>Maize</h3>
+      <img src="images/maize.jpg" alt="Maize crop in Zimbabwe">
+      <p>Maize is Zimbabwe’s staple crop, grown widely across provinces.</p>
+      <table>
+        <tr><th>Season</th><th>Planting</th><th>Harvest</th><th>Yield</th><th>Water</th></tr>
+        <tr><td>Summer</td><td>November</td><td>April</td><td>5t/ha</td><td>600mm</td></tr>
+      </table>
+    </article>
+
+    <article>
+      <h3>Wheat</h3>
+      <img src="images/wheat.jpg" alt="Wheat crop in Zimbabwe">
+      <p>Wheat is grown mainly in winter under irrigation schemes.</p>
+      <table>
+        <tr><th>Season</th><th>Planting</th><th>Harvest</th><th>Yield</th><th>Water</th></tr>
+        <tr><td>Winter</td><td>May</td><td>September</td><td>4t/ha</td><td>500mm</td></tr>
+      </table>
+    </article>
+
+
+    <article>
+      <h3>Millet</h3>
+      <img src="images/Millet.jpg" alt="Millet crop in Zimbabwe">
+      <p>Millet is drought-tolerant and suitable for semi-arid regions.</p>
+      <table>
+        <tr><th>Season</th><th>Planting</th><th>Harvest</th><th>Yield</th><th>Water</th></tr>
+        <tr><td>Summer</td><td>November</td><td>March</td><td>2t/ha</td><td>400mm</td></tr>
+      </table>
+    </article>
+  </section>
+
+  <!-- Weather Section -->
+  <section id="weather">
+    <h2>Weather</h2>
+    <div id="weather-cards" class="row"></div>
+  </section>
+
+  <!-- Alerts Section -->
+  <section id="alerts">
+    <h2>Agricultural Alerts</h2><h3>Drought Advisory</h3>
+      <p>Farmers in Matabeleland should prepare for reduced rainfall.</p>
+      <time datetime="2026-09-01">Issued: September 1, 2026</time>
+      <button disabled>Dismiss</button>
+    </article>
+
+    <article>
+      <h3>Pest Infestation Alert</h3>
+      <p>Armyworm outbreak detected in Mashonaland Central.</p>
+      <time datetime="2026-09-05">Issued: September 5, 2026</time>
+      <button disabled>Dismiss</button>
+    </section>
+    </article>
+  </section>
+</main>
+
+<aside>
+  <h2>Resources</h2>
+  <ul>
+    <li><a href="https://www.fao.org">FAO</a></li>
+    <li><a href="https://www.moa.gov.zw">Zimbabwe Ministry of Agriculture</a></li>
+  </ul>
+  <p><strong>Tip:</strong> Stay updated with weekly alerts to protect your crops.</p>
+</aside>
+
+<footer>
+  <p>&copy; 2026 AgriTrack ZW | Contact: info@agritrackzw.org
+   <br><br><b><u>THANK YOU!!!</u>
+  </p>
+</footer>
+
+ <!-- JavaScript link -->
+  <script src="js/app.js" defer></script>
+js/api.jsscript>
+ 
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+ 
+const container = document.getElementById("weather-cards");
+ 
+const weatherData =
+await WeatherAPI.getAllProvinceWeather();
+ 
+weatherData.forEach(item => {
+ 
+const card = document.createElement("div");
+ 
+card.className = "col-md-4 mb-3";
+ 
+card.innerHTML = `
+<div class="card p-3">
+<h4>${item.province}</h4>
+<p>Temperature:
+${item.weather?.current_weather?.temperature ?? "N/A"} °C</p>
+ 
+<p>Wind Speed:
+${item.weather?.current_weather?.windspeed ?? "N/A"} km/h</p>
+</div>
+`;
+ 
+container.appendChild(card);
+});
+ 
+});
+</script>
+</body>
+</html>

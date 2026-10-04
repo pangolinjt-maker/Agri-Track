@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - AgriTrack ZW</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+<body>
+  <header class="bg-primary text-blue p-3">
+    <h1 class="container">AgriTrack ZW Registration</h1>
+    <nav class="container">
+
+      <a href="index.html" class="btn btn-light">Back to Homepage</a>
+    </nav>
+  </header>
+
+  <main class="container mt-4">
+    <form action="#" method="post">
+
+      <!-- Personal Information -->
+      <fieldset class="mb-4">
+        <legend>Personal Information</legend>
+        <div class="mb-3">
+          <label for="fullname" class="form-label">Full Name</label>
+          <input type="text" id="fullname" name="fullname" required placeholder="Pangolin JT">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" name="email" placeholder="pangolin@gmail.com" required>
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+263 7x xxx xxxx" required>
+        </div>
+        <div class="mb-3">
+          <label for="nid" class="form-label">National ID</label>
+          <input type="text" id="nid" name="nid" required placeholder="xx-xxxxxx H xx" required>
+        </div>
+          <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" name="password" class="form-control" minlength="6" required>
+        </div>
+        <div class="mb-3">
+          <label for="confirm" class="form-label">Confirm Password</label>
+          <input type="password" id="confirm" name="confirm" class="form-control" minlength="6" required>
+        </div>
+
+        </div>
+      </fieldset>
+
+      <!-- Farm Information -->
+      <fieldset class="mb-4">
+        <legend>Farm Information</legend>
+        <div class="mb-3">
+          <label for="farmname" class="form-label">Farm Name</label>
+          <input type="text" id="farmname" name="farmname" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="farmsize" class="form-label">Farm Size (ha)</label>
+          <input type="number" id="farmsize" name="farmsize" class="form-control" min="1" required>
+        </div>
+        <div class="mb-3">
+          <label for="province" class="form-label">Province</label>
+          <select id="province" name="province" class="form-select" required>
+            <optgroup label="Northern">
+              <option>Harare</option>
+              <option>Manicaland</option>
+              <option>Mashonaland Central</option>
+              <option>Mashonaland East</option>
+              <option>Mashonaland West</option>
+            </optgroup>
+            <optgroup label="Southern">
+              <option>Bulawayo</option>
+              <option>Matabeleland North</option>
+              <option>Matabeleland South</option>
+              <option>Midlands</option>
+              <option>Masvingo</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="district" class="form-label">District</label>
+          <input list="districts" id="district" name="district" class="form-control">
+          <datalist id="districts">
+            <option value="Binga">
+            <option value="Gweru">
+            <option value="Hwange">
+            <option value="Chiredzi">
+          </datalist>
+        </div>
+        <div class="mb-3">
+          <label for="region" class="form-label">Natural Region</label>
+          <select id="region" name="region" class="form-select" required>
+            <option>Region I</option>
+            <option>Region II</option>
+            <option>Region III</option>
+            <option>Region IV</option>
+            <option>Region V</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <!-- Crops and Seasons -->
+      <fieldset class="mb-4">
+        <legend>Crops and Seasons</legend>
+        <div class="mb-3">
+          <label class="form-label">Crops Grown</label><br>
+          <input type="checkbox" id="maize" name="crops" value="Maize"> <label for="maize">Maize</label>
+          <input type="checkbox" id="wheat" name="crops" value="Wheat"> <label for="wheat">Wheat</label>
+          <input type="checkbox" id="sorghum" name="crops" value="Sorghum"> <label for="sorghum">Sorghum</label>
+          <input type="checkbox" id="millet" name="crops" value="Millet"> <label for="millet">Millet</label>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Growing Season</label><br>
+          <input type="radio" id="summer" name="season" value="Summer" required> <label for="summer">Summer</label>
+          <input type="radio" id="winter" name="season" value="Winter"> <label for="winter">Winter</label>
+        </div>
+      </fieldset>
+
+      <!-- Irrigation and Security -->
+      <fieldset class="mb-4">
+        <legend>Irrigation and Security</legend>
+        <div class="mb-3">
+          <label for="irrigation" class="form-label">Irrigation Type</label>
+          <select id="irrigation" name="irrigation" class="form-select" required>
+            <option>Drip</option>
+            <option>Rain-fed</option>
+            <option>Sprinkler</option>
+            <option>Flood</option>
+          </select>
+        </div>
+              </fieldset>
+
+      <!-- Additional Notes -->
+      <fieldset class="mb-4">
+        <legend>Additional Notes</legend>
+        <div class="mb-3">
+          <label for="notes" class="form-label">Description/Notes</label>
+          <textarea id="notes" name="notes" class="form-control" maxlength="200"></textarea>
+        </div>
+      </fieldset>
+
+      <!-- Terms -->
+      <div class="form-check mb-4">
+        <input type="checkbox" id="terms" name="terms" class="form-check-input" required>
+        <label for="terms" class="form-check-label">I agree to the terms and conditions</label>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </main>
+<footer>
+  <p>&copy; 2026 AgriTrack ZW</p>
+</footer>
+
+js/api.jsscript>
+ <script src="js/app.js">>
+
+</body>
+</html>

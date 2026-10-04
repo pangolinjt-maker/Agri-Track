@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgriTrack ZW Dashboard</title>
+ <!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ <style>
+  h1, h2, h3 {
+  background-color: blue;
+  color: white;
+  padding: 6px;
+  border-radius: 4px;
+  display: inline-block;
+ }
+</style>
+
+</head>
+<body>
+ 
+<header>
+<h1>AgriTrack ZW</h1>
+ 
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="register.html">Register</a></li>
+</ul>
+</nav>
+</header>
+ 
+<main>
+ 
+<!-- Saved Farm Information -->
+<section>
+<h2>Registered Farm Information</h2>
+ 
+<div id="saved-farm">
+<p>No farm data available.</p>
+</div>
+</section>
+ 
+<!-- Crop Tracker -->
+<section>
+ 
+<h2>Crop Tracker Dashboard</h2>
+ 
+<section id="crop-list"></section>
+ 
+<form id="add-crop-form">
+ 
+<input
+type="text"
+id="crop-name"
+placeholder="Crop name"
+required>
+ 
+<button type="submit">
+Add Crop
+</button>
+ 
+</form>
+ 
+</section>
+ 
+</main>
+ 
+<footer>
+<p>&copy; 2026 AgriTrack ZW</p>
+</footer>
+ 
+<!-- Storage Module -->
+js/api.jsscript>
+ 
+<!-- Existing Application Logic -->
+js/app.jsscript>
+ 
+<!-- Display Saved Farm Data -->
+<script>
+ 
+document.addEventListener("DOMContentLoaded", () => {
+ 
+const farm = StorageAPI.get();
+ 
+if (farm) {
+ 
+document.getElementById("saved-farm").innerHTML = `
+ 
+<p><strong>Farmer:</strong> ${farm.fullname || "N/A"}</p>
+ 
+<p><strong>Email:</strong> ${farm.email || "N/A"}</p>
+ 
+<p><strong>Phone:</strong> ${farm.phone || "N/A"}</p>
+ 
+<p><strong>Farm Name:</strong> ${farm.farmname || "N/A"}</p>
+ 
+<p><strong>Farm Size:</strong> ${farm.farmsize || "N/A"} ha</p>
+ 
+<p><strong>Province:</strong> ${farm.province || "N/A"}</p>
+ 
+<p><strong>Notes:</strong> ${farm.notes || "None"}</p>
+ 
+`;
+}
+ 
+});
+ 
+</script>
+ 
+</body>
+</html>
